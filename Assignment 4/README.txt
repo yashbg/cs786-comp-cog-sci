@@ -1,11 +1,7 @@
-
-
-
-
- I am giving you a dataset that contains 70 judgments a subject has made
- about the size of hypothetical people based on their weight (in kilos)
- and height (in inches). The subject has categorized people into three categories - 
- small, average and large. 
+I am giving you a dataset that contains 70 judgments a subject has made
+about the size of hypothetical people based on their weight (in kilos)
+and height (in inches). The subject has categorized people into three categories - 
+small, average and large. 
 
 The dataset data.csv contains the 70 actual judgments made by the subject as a 70x
 3 matrix. The first column contains weights, the second contains heights.
