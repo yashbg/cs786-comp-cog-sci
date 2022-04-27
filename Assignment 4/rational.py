@@ -70,9 +70,9 @@ class dLocalMAP:
     def stimulate(self, stim):
         """Argmax of P(k|F) + P(0|F)"""
         winner = np.argmax( self.posterior(stim) )
-        print "Stim: ", stim
-        print "Partition: ", self.partition
-        print self.posterior(stim)
+        print("Stim: ", stim)
+        print("Partition: ", self.partition)
+        print(self.posterior(stim))
         
         if len(self.partition[winner]) == 0:
             self.partition.append( [] )
@@ -86,7 +86,7 @@ class dLocalMAP:
         for i in range(len(stimulus)):
             if stimulus[i] < 0:
                 if qdim != -1:
-                    raise Exception, "ERROR: Multiple dimensions queried."
+                    raise Exception("ERROR: Multiple dimensions queried.")
                 qdim = i
         
         self.N = sum([len(x) for x in self.partition])
@@ -121,15 +121,15 @@ def testlocalmapD():
     #stims = [[0, 0, 0, 0], [0, 0, 1, 0], [1, 1, 0, 1], [1, 1, 1, 1], [1, 0, 0, 0], [1, 0, 1, 1], [0, 1, 0, 0], [0, 1, 1, 1]] # Type IV
     stims = [[0, 0, 0, 0], [0, 0, 1, 0], [1, 1, 0, 0], [1, 1, 1, 0], [1, 0, 0, 1], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 1]] # Type II
     
-    for _ in xrange(1):
+    for _ in range(1):
         model = dLocalMAP([.5, np.ones((len(stims[0]),2))])
         
         shuffle(stims)
         for s in stims:
             model.stimulate(s)
-        print model.partition
+        print(model.partition)
         
-        print "Prob vals for 0,0,0,0,?", model.query( [0]*(len(stims[0])-1) + [-1] )
+        print("Prob vals for 0,0,0,0,?", model.query( [0]*(len(stims[0])-1) + [-1] ))
 
 def main():
     testlocalmapD()
